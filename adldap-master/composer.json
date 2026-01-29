@@ -1,0 +1,44 @@
+{
+  "name": "estdigital/adldap",
+  "description": "Craft 3 LDAP login",
+  "type": "craft-plugin",
+  "version": "1.2",
+  "keywords": [
+    "craft",
+    "cms",
+    "craftcms",
+    "craft-plugin",
+    "AD",
+    "LDAP",
+    "login",
+    "Active Directory"
+  ],
+  "license": "MIT",
+  "authors": [
+      {
+          "name": "Est Digital",
+          "homepage": "https://estdigital.nl"
+      }
+  ],
+  "require": {
+	"adldap2/adldap2": "^10.0.0"
+  },
+  "autoload": {
+      "psr-4": {
+          "estdigital\\adldap\\": "src/"
+      },
+      "files": ["src/Adldap.php"]
+  },
+  "extra": {
+      "name": "Adldap",
+      "handle": "adldap",
+      "version": "1.0.0",
+      "schemaVersion": "1.0.0",
+      "hasSettings": true,
+      "hasCpSection": true,
+      "developer": "Est Digital",
+      "developerUrl": "https://estdigital.nl",
+      "description": "Craft 3 LDAP login.",
+      "class": "estdigital\\adldap\\Adldap"
+  }
+}

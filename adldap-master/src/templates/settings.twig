@@ -1,0 +1,66 @@
+{% import "_includes/forms" as forms %}
+
+{% set title = "Settings" %}
+
+<h3>REQUIRED:</h3>
+
+{{ forms.textField({
+    id: 'domainControllers',
+    name: 'domainControllers',
+    label: 'Domain Controllers' | t,
+    value: settings.domainControllers,
+    instructions: 'DC1.domain.local,DC2.domain.local'
+}) }}
+
+{{ forms.textField({
+    id: 'baseDN',
+    name: 'baseDN',
+    label: 'Base DN' | t,
+    value: settings.baseDN,
+    instructions: 'DC=domain,DC=local'
+}) }}
+
+{{ forms.textField({
+    id:"group",
+    name:"group",
+    label:"Group Handle "| t,
+    instructions:"Please enter the handle of the CRAFT CMS group you want you LDAP user to belong to.",
+    value: settings.group
+}) }}
+
+<hr>
+
+<h3>OPTIONAL</h3>
+
+{{ forms.textField({
+    id: 'port',
+    name: 'port',
+    label: 'Port' | t,
+    value: settings.port,
+    instructions: 'Port used to query the LDAP server' | t
+}) }}
+
+
+{{ forms.lightswitchField({
+    id:"ssl",
+    label: 'Use SSL' | t,
+    instructions: 'Should we use SSL protocol to communicate to server' | t,
+    name: 'ssl',
+    on: settings.ssl,
+}) }}
+
+{{ forms.lightswitchField({
+    id:"tls",
+    label: 'Use TLS' | t,
+    instructions: 'Should we use TLS protocol to communicate to server' | t,
+    name: 'tls',
+    on: settings.tls,
+}) }}
+
+{{ forms.lightswitchField({
+    id:"referrals",
+    label: 'Follow Referrals' | t,
+    instructions: 'Follow Referrals' | t,
+    name: 'referrals',
+    on: settings.referrals,
+}) }}
