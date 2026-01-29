@@ -104,16 +104,15 @@ class Custom_mollie
                 );
                 if ($payment_paid) {   
                     // Send customer email if paid.
-                    $this->send_templated_email($form_id, $entry_id, (isset($_GET["zaaien"])? "zaaien@groei.nl":""));
+                    $this->send_templated_email($form_id, $entry_id, (isset($_GET["zaaien"])? "":""));
                     switch(array_flip($this->form_types)[$form_id]){
                         case "zaad_bestellen":
                             // Send email to seed provider.
-                            $this->send_templated_email($form_id, $entry_id, "zaaien@groei.nl");
+                            $this->send_templated_email($form_id, $entry_id, "");
                             break;
 
                         case "agenda_order":
-                            // Send email(s) to groei.
-                            $this->send_templated_email($form_id, $entry_id, "webmaster@groei.nl, secretariaat@groei.nl");
+                            $this->send_templated_email($form_id, $entry_id, "");
                             break;
 
                         case "kennismakingsactie":
@@ -122,13 +121,11 @@ class Custom_mollie
                             break;
 
                         case "specials":
-                            // Send email(s) to groei.
-                            $this->send_templated_email($form_id, $entry_id, "secretariaat@groei.nl");
+                            $this->send_templated_email($form_id, $entry_id, "");
                             break;
 
                         case "jubileumtulp":
-                            // Send email(s) to groei.
-                            $this->send_templated_email($form_id, $entry_id, "zaaien@groei.nl");
+                            $this->send_templated_email($form_id, $entry_id, "");
                             break;
                     }
                 }
@@ -159,13 +156,13 @@ class Custom_mollie
             switch(array_flip($this->form_types)[$form_id]){
                 case "kennismakingsactie":
                     $template_name = "." . $form_type . "_email";
-                    $from = 'From: Groei & Bloei <webmaster@groei.nl>' . "\r\n";
-                    $subject = "Bevestiging kennismakingsactie groei.nl";
+                    $from = 'From: <>' . "\r\n";
+                    $subject = "Bevestiging kennismakingsactie";
                     $reply_to = "";
                     break;
                 
                 case "zaad_bestellen":
-                    $subject = "Zaad bestellen groei.nl order #".$variables['order_nr'];
+                    $subject = "Zaad bestellen order #".$variables['order_nr'];
                     if(!empty($email)){
                         $template_name = "." . $form_type . "_zaaien_email";
                         $subject = $subject." voor ".($variables['geslacht'] == "M"? " Dhr.":" Mevr.")." ".$variables['voornaam'].(!empty($variables['voorvoegsels'])? " ".$variables['voorvoegsels']:'' )." ".$variables['achternaam'];
@@ -175,11 +172,11 @@ class Custom_mollie
                         $subject = "Bevestiging ".strtolower($subject);
                         $reply_to = "";
                     }
-                    $from = 'From: Groei & Bloei <zaaien@groei.nl>' . "\r\n";                     
+                    $from = 'From:<>' . "\r\n";                     
                     break;
 
                 case "agenda_order":
-                    $subject = "Agenda Groei & Bloei bestelling #".$variables['order_nr'];
+                    $subject = "Agenda bestelling #".$variables['order_nr'];
                     if(!empty($email)){
                         $template_name = "." . $form_type . "_webmaster_email";
                         $subject = $subject." voor ".($variables['geslacht'] == "M"? " Dhr.":" Mevr.")." ".$variables['voornaam'].(!empty($variables['voorvoegsels'])? " ".$variables['voorvoegsels']:'' )." ".$variables['achternaam'];
@@ -189,11 +186,11 @@ class Custom_mollie
                         $subject = $subject;
                         $reply_to = "";
                     }
-                    $from = 'From: Groei & Bloei <secretariaat@groei.nl>' . "\r\n";                     
+                    $from = 'From: <>' . "\r\n";                     
                     break;
                 
                 case "specials":
-                    $subject = "Groei & Bloei Specials bestelling #".$variables['order_nr'];
+                    $subject = "Specials bestelling #".$variables['order_nr'];
                     if(!empty($email)){
                         $template_name = "." . $form_type . "_webmaster_email";
                         $subject = $subject." voor ".($variables['geslacht'] == "M"? " Dhr.":" Mevr.")." ".$variables['voornaam'].(!empty($variables['voorvoegsels'])? " ".$variables['voorvoegsels']:'' )." ".$variables['achternaam'];
@@ -203,7 +200,7 @@ class Custom_mollie
                         $subject = $subject;
                         $reply_to = "";
                     }
-                    $from = 'From: Groei & Bloei <secretariaat@groei.nl>' . "\r\n";                     
+                    $from = 'From: <>' . "\r\n";                     
                     break;
 
                 case "jubileumtulp":
@@ -217,7 +214,7 @@ class Custom_mollie
                         $subject = $subject;
                         $reply_to = "";
                     }
-                    $from = 'From: Groei & Bloei <zaaien@groei.nl>' . "\r\n";                     
+                    $from = 'From: <>' . "\r\n";                     
                     break;
             }
             $tagdata = ee()->TMPL->fetch_template('payment', $template_name, FALSE);

@@ -86,7 +86,7 @@ Class Departments{
 
         // Ping https://healthchecks.io/
         if(ENV == "prod"){
-            file_get_contents('https://hc-ping.com/8ed79bca-a874-4ce5-bf0b-db01a51bc352');
+            // file_get_contents('');
         }
 
     }

@@ -43,12 +43,7 @@ class Custom_procurios
 		$procurios_form_id = ee()->procurios->form_types[$form];
 		// Get schema for form with form ID.
 		$form_schema = ee()->procurios->get_schema($procurios_form_id);
-		if(isset($_GET['debug'])){
-			echo "<pre>";
-			print_r($form_schema);
-			echo "</pre>";
-			exit;
-		}
+
 		// Get membership startdate options.
 		$field_name;
 		switch($procurios_form_id){

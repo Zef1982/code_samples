@@ -238,7 +238,7 @@ class Members{
 
 		// ENV mail security!
 		if(ENV == "prod"){
-			$this->send_mail($email, 'Inloggegevens Mijn Groei', $parsed_mail_template);
+			$this->send_mail($email, 'Inloggegevens', $parsed_mail_template);
 		}
 	}
 	
@@ -254,7 +254,7 @@ class Members{
     *
     * @return boolean
     */
-	private function send_mail($email, $subject, $body, $from = "webmaster@groei.nl", $from_name = "Groei & Bloei", $attachments = []){			
+	private function send_mail($email, $subject, $body, $from = "", $from_name = "", $attachments = []){			
 		ee()->load->library('email');		
 		ee()->email->clear(true);
 		ee()->email->initialize(['mailtype' => 'html']);		

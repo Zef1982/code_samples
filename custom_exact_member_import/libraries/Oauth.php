@@ -58,19 +58,11 @@ class Oauth {
         // The number of API calls is over the minute trheshold, should we sleep the rest of the minute?
         if(ee()->curl->api_calls_count%$this->api_minute_threshold == 0){
 
-            if(isset($_Get['debug'])){
-                echo "API calls over " . $this->api_minute_threshold . "<br />";
-            }
-
             // Has a minute passed yet?
             $time_now = time() - $this->time_start;
 
             // Sleep the remaining time...         
             $sleepy_time = (65 - $time_now);
-
-            if(isset($_Get['debug'])){
-                echo "Sleeping for " . ($sleepy_time > 0 ? $sleepy_time : 0) . " seconds...<br />";
-            }
 
             sleep($sleepy_time > 0 ? $sleepy_time : 0);
         }

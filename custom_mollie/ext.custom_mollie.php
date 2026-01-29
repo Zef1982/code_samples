@@ -117,13 +117,13 @@ class Custom_mollie_ext
 
 				case $form_types["agenda_order"]:
 					$amount = "10.95";
-					$description = "Agenda Groei & Bloei";
+					$description = "";
 					$form_type = "agenda_order";
 					break;
 
 				case $form_types["specials"]:
 					$amount = $this->get_specials_order_price($_POST['specials_index'], $form_id, $entry_id);
-					$description = "Specials Groei & Bloei";
+					$description = "";
 					$form_type = "specials";
 					break;
 
@@ -141,7 +141,7 @@ class Custom_mollie_ext
 						"currency" => "EUR",
 						"value" => $amount
 				],
-				"description" => $description . " groei.nl order #".$order_id,
+				"description" => $description . " order #".$order_id,
 				"redirectUrl" => $this->site_url."payment/redir?order_id=".$order_id, //
 				"webhookUrl" => $this->site_url."payment/webhook",
 				"metadata" => [

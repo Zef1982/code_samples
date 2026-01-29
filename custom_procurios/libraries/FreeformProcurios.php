@@ -94,17 +94,6 @@ class FreeformProcurios{
 			// Validate the form data.
             $validation = ee()->procurios->form_validate($procurios_form_id, $procurios_form_data);
 
-			// Debugging.
-			$member_id = ee()->session->userdata('member_id');
-			if(2144360 == $member_id){
-				echo $procurios_form_id . "<pre>";
-				print_r($procurios_form_data);
-				print_r($_POST);
-				print_r($validation);
-				echo "</pre>";
-				exit;
-			}
-
             if(isset($validation["errors"])){
 
                 // Mail errors to monitor, so registration can continue.

@@ -49,7 +49,7 @@ Class Events{
 	public function import(){
 
 		// Get XML into array.
-		$xml_string = file_get_contents("https://afdeling.groei.nl/agenda_export.xml");
+		$xml_string = file_get_contents("agenda_export.xml");
 
 		// Remove annoying characters.
 		$invalid_characters = '/[^\x9\xa\x20-\xD7FF\xE000-\xFFFD]/';
@@ -110,7 +110,7 @@ Class Events{
 
 		if(ENV == "prod"){
 			// Ping https://healthchecks.io/
-			file_get_contents('https://hc-ping.com/af660ff5-209b-4962-b970-939ae1e95e17');
+			// file_get_contents('');
 			exit;
 		}
 
@@ -239,7 +239,7 @@ Class Events{
 
 		/* VANG LINKS AF */
 
-		$department_domain = strtolower($department).".groei.nl";
+		$department_domain = strtolower($department)";
 		//<link 60822 - imp-button-gfx-132px>
 		$pattern = "/link ([0-9]*) - imp-button-gfx-132px/";
 		$replacement = "a href='http://".$department_domain."/index.php?id=$1' target='_blank'";

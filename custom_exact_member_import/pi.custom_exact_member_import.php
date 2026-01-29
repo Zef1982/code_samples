@@ -70,7 +70,7 @@ class Custom_exact_member_import
 							switch(ENV){
 								
 								case "prod":
-									$this->sendMail($new_member_email, 'digitale Onze Taal', $parsed_mail_template);
+									$this->sendMail($new_member_email, '', $parsed_mail_template);
 									break;
 									
 								case "dev":
@@ -78,7 +78,7 @@ class Custom_exact_member_import
 									break;
 								
 								default:
-									$this->sendMail("zef@estdigital.nl", 'digitale Onze Taal', $parsed_mail_template);
+									$this->sendMail("", '', $parsed_mail_template);
 							}
 						}	
 					}else{
@@ -89,7 +89,7 @@ class Custom_exact_member_import
 		}
 
 		// Ping https://healthchecks.io/
-		file_get_contents('https://hc-ping.com/ce87ae60-49ec-455e-81e7-90cffd4c9d49');
+		// file_get_contents('');
 
 		exit;
 	}
@@ -126,7 +126,7 @@ class Custom_exact_member_import
 						$handle = fopen($attachment, "w");
 						fwrite($handle, implode(PHP_EOL, $deleted_member_emails));
 
-						$this->sendMail("Leonie.Flipsen@onzetaal.nl, zef+onzetaalapi@estdigital.nl", "Teveel uitschrijvingen Onze Taal", $parsed_mail_template, "webredactie@onzetaal.nl", "Onze Taal", $attachment);
+						//$this->sendMail("", "Teveel uitschrijvingen", $parsed_mail_template, "", "", $attachment);
 						break;
 
 					case "dev":
@@ -134,7 +134,7 @@ class Custom_exact_member_import
 						break;
 						
 					default:
-						$this->sendMail("zef+onzetaalapi@estdigital.nl", "Teveel uitschrijvingen Onze Taal", $parsed_mail_template);
+						//$this->sendMail("", "Teveel uitschrijvingen", $parsed_mail_template);
 				}
 
 			}else{
@@ -149,7 +149,7 @@ class Custom_exact_member_import
 		}
 
 		// Ping https://healthchecks.io/
-		file_get_contents('https://hc-ping.com/e5133fca-8b4b-4b78-a551-0e470cfcce7e');
+		// file_get_contents('');
 
 		exit;
 	}
@@ -191,7 +191,7 @@ class Custom_exact_member_import
 		*
 		* @return boolean
 		*/
-	private function sendMail($email, $subject, $body, $from = "webredactie@onzetaal.nl", $fromname = "Onze Taal", $attach = []){
+	private function sendMail($email, $subject, $body, $from = "", $fromname = "", $attach = []){
 			
 		ee()->load->library('email');
 		$config['mailtype'] = 'html';		
