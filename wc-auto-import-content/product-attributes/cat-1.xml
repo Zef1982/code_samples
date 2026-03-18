@@ -1,0 +1,18 @@
+<fields>
+    <color>
+        <name>Color</name>
+        <value>Ash Heather | Black | Forest Green | Fuchsia | Ice Mint | Kelly Green | Light Royal Blue | Light Sand | Navy | Orange | Oxford Grey | Pale Pink | Red | Sage | Sky Blue | Tropical Blue | White | Wine | Yellow</value>
+        <position>is_visible</position>
+        <is_visible>1</is_visible>
+        <is_variation>1</is_variation>
+        <is_taxonomy>0</is_taxonomy>
+    </color>
+    <size>
+        <name>Size</name>
+        <value>2-4 | 4-6 | 6-8 | 8-10 | 10-12 | 12-14</value>
+        <position>is_visible</position>
+        <is_visible>1</is_visible>
+        <is_variation>1</is_variation>
+        <is_taxonomy>0</is_taxonomy>
+    </size>
+</fields>

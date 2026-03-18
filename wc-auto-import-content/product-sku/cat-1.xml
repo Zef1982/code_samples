@@ -1,0 +1,31 @@
+<product_sku>
+    <colors>
+        <color>
+            <name>Red</name>
+            <sku>RED</sku>
+        </color>
+        <color>
+            <name>White</name>
+            <sku>WIT</sku>
+        </color>
+        <color>
+            <name>Blue</name>
+            <sku>BLU</sku>
+        </color>
+        <color>
+            <name>Orange</name>
+            <sku>ORG</sku>
+        </color>
+        <color>
+            <name>Green</name>
+            <sku>GRN</sku>
+        </color>
+    </colors>
+    <sizes>
+        <size><name>XS</name><sku>XS</sku></size>
+        <size><name>S</name><sku>S</sku></size>
+        <size><name>M</name><sku>M</sku></size>
+        <size><name>L</name><sku>L</sku></size>
+        <size><name>XL</name><sku>XL</sku></size>
+    </sizes>
+</product_sku>
